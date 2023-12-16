@@ -1,11 +1,14 @@
-# font-maker
- 
-- [IchigoJam dot font](https://code4fukui.github.io/font-maker/IchigoJamdot-Regular.otf) (CC BY [IchigoJam](https://ichigojam.net/))
+# IchigoJam font - IchigoJamフォント
+
+- [IchigoJam font](https://ichigojam.github.io/font/IchigoJam_font-Regular.otf) (CC BY [IchigoJam](https://ichigojam.net/))
+- [IchigoJam font dot](https://ichigojam.github.io/font/IchigoJam_font_dot-Regular.otf) (CC BY [IchigoJam](https://ichigojam.net/))
+- [IchigoJam font round](https://ichigojam.github.io/font/IchigoJam_font_round-Regular.otf) (CC BY [IchigoJam](https://ichigojam.net/))
 
 ## How to make
 
 ```bash
-deno run -A makeIchigoJamFont.js
+deno run -A makeIchigoJamFont_round.js
+deno run -A makeIchigoJamFont_dot.js
 ```
 
 ## dependencies
