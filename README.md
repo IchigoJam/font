@@ -4,6 +4,8 @@
 - [IchigoJam font dot](https://ichigojam.github.io/font/IchigoJam_font_dot-Regular.otf) (CC BY [IchigoJam](https://ichigojam.net/))
 - [IchigoJam font round](https://ichigojam.github.io/font/IchigoJam_font_round-Regular.otf) (CC BY [IchigoJam](https://ichigojam.net/))
 
+![image](https://github.com/IchigoJam/font/assets/1715217/f213d3f8-fa93-4f2c-bbcb-854eeba1a70c)
+
 ## How to make
 
 ```bash
