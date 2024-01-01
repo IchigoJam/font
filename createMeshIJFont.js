@@ -4,7 +4,8 @@ import { ijfont2svg } from "./ijfont2svg.js";
 import { makeDataSVG } from "./makeDataSVG.js";
 
 export const createMeshIJFont = async (s, material) => {
-  const svg = ijfont2svg(s, 10);
+  const dotw = 10;
+  const svg = ijfont2svg(s, dotw);
   const url2 = makeDataSVG(svg);
 
   if (!material) {
@@ -29,6 +30,10 @@ export const createMeshIJFont = async (s, material) => {
     for (const shape of shapes) {
       const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
       const mesh = new THREE.Mesh(geometry, material);
+      // centering the origin
+      mesh.position.x -= dotw * s.length * 8 / 2;
+      mesh.position.y -= dotw * 8 / 2;
+      mesh.position.z -= dotw / 2;
       group.add(mesh);
     }
   }
