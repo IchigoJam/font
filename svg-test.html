@@ -1,0 +1,55 @@
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://code4fukui.github.io/three.js/build/three.module.js",
+    "three/addons/": "https://code4fukui.github.io/three.js/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import { THREE, scene, camera, renderer } from "https://code4fukui.github.io/egxr.js/egxr.js";
+import { OrbitControls } from 'https://code4fukui.github.io/three.js_examples/jsm/controls/OrbitControls.js';
+import { SVGLoaderAsync } from "./SVGLoaderAsync.js";
+
+const url = "https://threejs.org/examples/models/svg/tiger.svg";
+const data = await new SVGLoaderAsync().load(url);
+const paths = data.paths;
+const group = new THREE.Group();
+for (const path of paths) {
+  const material = new THREE.MeshBasicMaterial( {
+    color: path.color,
+    side: THREE.DoubleSide,
+    depthWrite: false
+  });
+  console.log(path);
+  const shapes = SVGLoaderAsync.createShapes(path);
+  for (const shape of shapes) {
+    const geometry = new THREE.ShapeGeometry(shape);
+    const mesh = new THREE.Mesh(geometry, material);
+    group.add(mesh);
+  }
+}
+scene.add(group);
+
+const obj = group;
+
+console.log(obj)
+obj.position.z = -5;
+obj.position.x = -1;
+obj.position.y = 0;
+obj.scale.x = obj.scale.y = obj.scale.z = 0.005;
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  controls.update();
+  obj.rotation.z += 0.002;
+  obj.rotation.y += 0.002;
+  renderer.render(scene, camera);
+});
+
+</script>
+</body>
+</html>

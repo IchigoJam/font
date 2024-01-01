@@ -1,0 +1,34 @@
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://code4fukui.github.io/three.js/build/three.module.js",
+    "three/addons/": "https://code4fukui.github.io/three.js/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import { THREE, scene, camera, renderer } from "https://code4fukui.github.io/egxr.js/egxr.js";
+import { createMeshIJFont } from "./createMeshIJFont.js";
+
+const material = new THREE.MeshBasicMaterial({ color: "#ff3300" });
+
+const obj = await createMeshIJFont("IchiogJam", material);
+scene.add(obj);
+
+console.log(obj);
+obj.position.z = -5;
+obj.position.x = -1;
+obj.position.y = 0;
+obj.scale.x = obj.scale.y = obj.scale.z = 0.01;
+
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  obj.rotation.z += 0.002;
+  obj.rotation.y += 0.01;
+  renderer.render(scene, camera);
+});
+
+</script>
+</body>
+</html>
