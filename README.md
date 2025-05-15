@@ -13,6 +13,19 @@ deno run -A makeIchigoJamFont_round.js
 deno run -A makeIchigoJamFont_dot.js
 ```
 
+### png
+
+```bash
+deno run -A makePNG.js
+```
+
+### bin
+
+```bash
+deno run -A makeBIn.js
+deno run -A https://code4fukui.github.io/bin2js/bin2js.js ichigojam-font.bin
+```
+
 ## dependencies
 
 - [opentype-es](https://github.com/code4fukui/opentype-es/)
